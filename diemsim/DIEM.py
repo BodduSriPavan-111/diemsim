@@ -36,6 +36,7 @@ class DIEM:
     -------
     compact_vectorized_DIEM_Stat : Computes required stats to calculate DIEM.
     sim : Computes DIEM value between any two given embeddings of dimension 'N'.
+    norm_sim: Computes normalized DIEM value in the range [0,1] between any two given embeddings of dimension 'N'.
     """
     def __init__( self, N: int = None, maxV: float = 1, minV: float = 0, n_iter: int = int(1e5) ):
         """
@@ -50,6 +51,8 @@ class DIEM:
         self.stats= self.compact_vectorized_DIEM_Stat(N= self.N, maxV= self.maxV, minV= self.minV, n_iter= self.n_iter)
         self.exp_center= self.stats["exp_center"]
         self.vard= self.stats["vard"]
+        self.min_DIEM= self.stats["min_DIEM"]
+        self.max_DIEM= self.stats["max_DIEM"]
 
     def compact_vectorized_DIEM_Stat(self, N: int, maxV: float, minV: float, n_iter: int = int(1e5)) -> dict:
         """
@@ -114,7 +117,7 @@ class DIEM:
                 "min_DIEM": -(rv_factor * exp_center),
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
-
+    
     def sim(self, a: np.ndarray, b: np.ndarray) -> float:
         """
         Computes DIEM value.
@@ -137,3 +140,22 @@ class DIEM:
         x= a[:, 0]- b[:, 0]
         
         return (self.maxV - self.minV) *(np.sqrt(np.dot(x, x))- self.exp_center)/ self.vard
+    
+    def norm_sim(self, a: np.ndarray, b: np.ndarray) -> float:
+        """
+        Computes normalized DIEM value in the range [0,1].
+
+        Parameters
+        ----------
+        a : np.ndarray
+            - Input vector embedding-1.
+        b : np.ndarray
+            - Input vector embedding-2.
+
+        Returns
+        -------
+        Normalized DIEM Value in the range [0,1]: float
+        """
+
+        # Min-Max Normalization
+        return (self.sim( a, b ) - self.min_DIEM) / (self.max_DIEM - self.min_DIEM)
