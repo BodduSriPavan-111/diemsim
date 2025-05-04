@@ -21,13 +21,21 @@ pip install diemsim
 ```
 #### Usage
 ```py
-from kitikiplot import KitikiPlot
+from diemsim import DIEM
 
-data = [] # DataFrame or list of sliding window data
+N= 12
+maxV= 1
+minV= 0
+n_iter= int(1e5)
 
-ktk= KitikiPlot( data= data )
+S1= np.random.rand(N, 1) * (maxV - minV) + minV
+S2= np.random.rand(N, 1) * (maxV - minV) + minV
 
-ktk.plot( display_legend= True ) # Display the legend
+diem= DIEM( N= N, maxV= maxV, minV= minV, n_iter= n_iter ) 
+
+value= diem.sim( S1, S2)
+
+print( "Output Value: ", value )
 ```
 Check out the complete <b>guide of customization</b> [here](https://github.com/BodduSriPavan-111/kitikiplot/blob/main/examples/Usage_Guide.ipynb).
 
