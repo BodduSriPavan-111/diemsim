@@ -36,6 +36,9 @@ class DIEM:
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
 
-    def get_DIEM(self, a, b):
-
-        return True
+    def sim(self, a, b):
+        """compact_optimized_getDIEM"""
+        
+        x= a[:, 0]- b[:, 0]
+        
+        return (self.maxV - self.minV) *(np.sqrt(np.dot(x, x))- self.exp_center)/ self.vard
