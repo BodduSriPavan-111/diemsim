@@ -37,7 +37,7 @@ Please refer <a href="https://github.com/BodduSriPavan-111/kitikiplot/blob/main/
 ### Key Contributor
 <a href="https://www.linkedin.com/in/boddusripavan/"> Boddu Sri Pavan </a>
 
-## Citation
+## Acknowledgement
 BibTeX
 > @misc{tessari2025surpassingcosinesimilaritymultidimensional,  </br>
 >      title={Surpassing Cosine Similarity for Multidimensional Comparisons: Dimension Insensitive Euclidean Metric},   </br>
@@ -48,5 +48,9 @@ BibTeX
 >      primaryClass={cs.LG},  </br>
 >      url={https://arxiv.org/abs/2407.08623},   </br>
 >}
+
+## To cite our Python library
+
+> Our citation
 
 ## Thank You !
