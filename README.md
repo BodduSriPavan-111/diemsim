@@ -17,7 +17,7 @@ Dimension Insensitive Euclidean Metric
 ### Getting Started
 Install the package via pip:
 ```
-pip install kitikiplot
+pip install diemsim
 ```
 #### Usage
 ```py
