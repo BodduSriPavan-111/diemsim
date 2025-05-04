@@ -31,6 +31,10 @@ class DIEM:
         - Deterending Euclidean Distance on Median Value.
     vard : float
         - Variance of Euclidean distirbution.
+    min_DIEM : float
+        - Minimum possible DIEM value.
+    max_DIEM : float
+        - Maximum possible DIEM value.
 
     Methods
     -------
