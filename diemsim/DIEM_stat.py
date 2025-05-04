@@ -1,57 +1,42 @@
 import numpy as np
-from scipy.spatial.distance import euclidean
-from scipy.linalg import null_space
 
 class DIEM_stat:
 
-    def __init__( self, N= None, maxV= 1, minV= 0, n_iter= 100000 ):
+    def __init__( self, N= None, maxV= 1, minV= 0, n_iter= int(1e5) ):
 
         self.N= N
         self.maxV= maxV
         self.minV= minV
         self.n_iter= n_iter
 
-        self.stats= self._get_stat( N= self.N, maxV= self.maxV, minV= self.minV, n_iter= self.n_iter)
-        
-        self.d= self.stats["d"]
-        self.dort= self.stats["dort"]
-        self.exp_center= self.stats["exp_center"]
-        self.vard= self.stats["vard"]
-        self.orth_med= self.stats["orth_med"]
-        self.adjusted_dist= self.stats["adjusted_dist"]
-        self.std_one= self.stats["std_one"]
-        self.min_DIEM= self.stats["min_DIEM"]
-        self.max_DIEM= self.stats["max_DIEM"]
+        self.stats= self.vectorized_DIEM_Stat(N= self.N, maxV= self.maxV, minV= self.minV, n_iter= self.n_iter)
 
 
-    @staticmethod
-    def _get_stat( N, maxV, minV, n_iter):
+    def vectorized_DIEM_Stat(self, N, maxV, minV, n_iter= int(1e5)):
 
-        d= []
-        dort= []
+        range_factor= maxV - minV
 
-        for j in range(n_iter):
+        a = range_factor * np.random.rand(n_iter, N, 1) + minV
+        b = range_factor * np.random.rand(n_iter, N, 1) + minV
 
-            a= (maxV-minV)*np.random.rand(N, 1)+minV
-            b= (maxV-minV)*np.random.rand(N, 1)+minV
+        difference= a[:, :, 0] - b[:, :, 0]
 
-            tmp= null_space( a.T )
-            ort= tmp[:, 0]
+        tmp= [
+            ( lambda svd_out: svd_out[2][np.sum(svd_out[1] > np.amax(svd_out[1]) * np.finfo(svd_out[1].dtype).eps * N, dtype=int):,:].T.conj() )(np.linalg.svd(a[iteration].T, full_matrices=True))
+                for iteration in range(n_iter)
+            ]
 
-            d.append( euclidean( a.flatten(), b.flatten() ) )
-            dort.append( euclidean(a.flatten(), ort) )
+        d= np.sqrt(np.sum(difference ** 2, axis=1))
 
-        exp_center= np.median( d )
-        vard= np.var( d )
-        
-        orth_med= (maxV-minV)*(np.median(dort)- exp_center)/vard
-        adjusted_dist= (maxV-minV)*(np.array(d)-exp_center)/vard
+        dort= [(lambda x: np.sqrt(np.dot(x, x)))(a[iteration][:, 0]-tmp[iteration][:, 0].reshape(-1, 1)[:, 0]) for iteration in range(n_iter)]
 
-        std_one= np.std( adjusted_dist )
+        exp_center = np.median(d)
+        vard = np.var(d)
 
-        min_DIEM= -(maxV-minV)*(exp_center/vard)
-        max_DIEM= (maxV-minV)*(np.sqrt(N)*(maxV-minV)-exp_center)/vard
+        rv_factor= range_factor/ vard
 
-        return {"d": d, "dort": dort, "exp_center": exp_center, "vard": vard, 
-                "orth_med": orth_med, "adjusted_dist": adjusted_dist, 
-                "std_one": std_one, "min_DIEM": min_DIEM, "max_DIEM": max_DIEM}
+        return {"exp_center": exp_center, "vard": vard, "std_one": np.std(rv_factor * (d - exp_center)),
+                "orth_med": rv_factor * (np.median(dort) - exp_center),
+                "min_DIEM": -(rv_factor * exp_center),
+                "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
+                }
