@@ -1,6 +1,6 @@
 import numpy as np
 
-class DIEM_stat:
+class DIEM:
 
     def __init__( self, N= None, maxV= 1, minV= 0, n_iter= int(1e5) ):
 
@@ -8,9 +8,10 @@ class DIEM_stat:
         self.maxV= maxV
         self.minV= minV
         self.n_iter= n_iter
-
+        
         self.stats= self.vectorized_DIEM_Stat(N= self.N, maxV= self.maxV, minV= self.minV, n_iter= self.n_iter)
-
+        self.exp_center= self.stats["exp_center"]
+        self.vard= self.stats["vard"]
 
     def vectorized_DIEM_Stat(self, N, maxV, minV, n_iter= int(1e5)):
 
@@ -40,3 +41,7 @@ class DIEM_stat:
                 "min_DIEM": -(rv_factor * exp_center),
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
+    
+    def get_DIEM(self, a, b):
+
+        return True

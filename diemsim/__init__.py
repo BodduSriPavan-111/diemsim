@@ -1,1 +1,1 @@
-from .DIEM_stat import DIEM_stat
+from .DIEM import DIEM
