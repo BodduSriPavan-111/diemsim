@@ -37,13 +37,13 @@ value= diem.sim( S1, S2)
 
 print( "Output Value: ", value )
 ```
-Check out the complete <b>guide of customization</b> [here](https://github.com/BodduSriPavan-111/kitikiplot/blob/main/examples/Usage_Guide.ipynb).
+Find <b>Quick Start</b> notebook [here](https://github.com/BodduSriPavan-111/diemsim/blob/dev/examples/Quickstart_Usage_Guide.ipynb)
 
 ### Key Contributors
 <a href="https://www.linkedin.com/in/boddusripavan/"> Boddu Sri Pavan </a>, 
 <a href="https://www.linkedin.com/in/chandrasheker-t-44807015/"> Chandrasheker Thummanagoti </a>  </br>
 
-Please refer <a href="https://github.com/BodduSriPavan-111/diemsim/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for <b>contributions</b> to <i>diemsim</i>.
+Please refer <a href="https://github.com/BodduSriPavan-111/diemsim/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for <b>contributions</b> to <i>diemsim</i>
 
 ## Acknowledgement
 BibTeX
