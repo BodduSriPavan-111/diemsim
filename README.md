@@ -1,18 +1,13 @@
-# diemsim
-Dimension Insensitive Euclidean Metric
-
 ![plot](https://drive.google.com/uc?id=138qQPk8hAyeOuNA8ddow3ksZIt0g97gh)
 
 <div align="center">
 
-![PyPI](https://img.shields.io/pypi/v/kitikiplot?color=blueviolet)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/kitikiplot?color=gold)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14632005.svg)](https://doi.org/10.5281/zenodo.14632005)
 ![License](https://img.shields.io/github/license/BodduSriPavan-111/kitikiplot?color=green)
 
 </div>
 
 # diemsim
+<b>diemsim</b> is an optimized Python library to compute "Dimension Insensitive Euclidean Metric (DIEM)" which surpasses Cosine similarity for multidimensional comparisons.
 
 ### Getting Started
 Install the package via pip:
@@ -31,8 +26,10 @@ n_iter= int(1e5)
 S1= np.random.rand(N, 1) * (maxV - minV) + minV
 S2= np.random.rand(N, 1) * (maxV - minV) + minV
 
+# Initialize DIEM
 diem= DIEM( N= N, maxV= maxV, minV= minV, n_iter= n_iter ) 
 
+# Compute DIEM value
 value= diem.sim( S1, S2)
 
 print( "Output Value: ", value )
