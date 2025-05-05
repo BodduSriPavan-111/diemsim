@@ -1,4 +1,4 @@
-# Contributing to KitikiPlot
+# Contributing to <i>diemsim</i>
 
 ## Steps to Contribute:
 
@@ -22,6 +22,6 @@ git push origin my-feature-branch
 ```
 - **Open a pull request** to the original repository.
 ## Code of Conduct:
-Please follow our <a href="https://github.com/BodduSriPavan-111/diemsim/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a> when participating.
+Please follow our <a href="https://github.com/BodduSriPavan-111/diemsim/blob/dev/CODE_OF_CONDUCT.md">Code of Conduct</a> when participating.
 
 ### Thank You for Contributing !
