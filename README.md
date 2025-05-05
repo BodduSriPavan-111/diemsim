@@ -43,7 +43,7 @@ Check out the complete <b>guide of customization</b> [here](https://github.com/B
 <a href="https://www.linkedin.com/in/boddusripavan/"> Boddu Sri Pavan </a>, 
 <a href="https://www.linkedin.com/in/chandrasheker-t-44807015/"> Chandrasheker Thummanagoti </a>  </br>
 
-Please refer <a href="https://github.com/BodduSriPavan-111/kitikiplot/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for <b>contributions</b> to <i>diemsim</i>.
+Please refer <a href="https://github.com/BodduSriPavan-111/diemsim/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for <b>contributions</b> to <i>diemsim</i>.
 
 ## Acknowledgement
 BibTeX
