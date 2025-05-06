@@ -16,6 +16,10 @@
   <img src="assets/get_DIEM.png" alt="get_DIEM" width="45%" />
 </p>
 
+Our proposed approaches, </br>
+**Compact Vectorization** optimizes latency of the existing function 'DIEM_Stat' by around **46.50%** </br>
+**Compact Optimized getDIEM** optimizes latency of the existing function 'getDIEM' by **34.27%**
+
 ### Getting Started
 Install the package via pip:
 ```
