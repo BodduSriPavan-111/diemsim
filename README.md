@@ -8,6 +8,13 @@
 
 # diemsim
 <b>diemsim</b> is an optimized Python library to compute "Dimension Insensitive Euclidean Metric (DIEM)" which surpasses Cosine similarity for multidimensional comparisons.
+<span style="color: blue;"><b>Benchmarking</b></span>
+
+### Latency Benchmarking
+<p align="center">
+  <img src="assets/DIEM_Stat.png" alt="DIEM_Stat" width="45%" />
+  <img src="assets/get_DIEM.png" alt="get_DIEM" width="45%" />
+</p>
 
 ### Getting Started
 Install the package via pip:
