@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![PyPI](https://img.shields.io/pypi/v/diemsim?color=gold)
+![Built with NumPy](https://img.shields.io/badge/Built%20with-NumPy-blue?logo=numpy&logoColor=white)
 ![License](https://img.shields.io/github/license/BodduSriPavan-111/kitikiplot?color=green)
 
 </div>
