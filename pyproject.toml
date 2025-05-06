@@ -1,7 +1,7 @@
 [project]
 name = "diemsim"
 version = "0.0.1"
-description = "A Python Library Implementing Dimension Insensitive Euclidean Metric"
+description = "A Python Library Implementing Dimension Insensitive Euclidean Metric (DIEM)"
 authors = [
     {name = "Boddu Sri Pavan"}
 ]
