@@ -11,14 +11,11 @@
 <span style="color: blue;"><b>Benchmarking</b></span>
 
 ### Latency Benchmarking
-<p align="center">
-  <img src="assets/DIEM_Stat.png" alt="DIEM_Stat" width="45%" />
-  <img src="assets/get_DIEM.png" alt="get_DIEM" width="45%" />
-</p>
-
 Our proposed approaches, </br>
 **Compact Vectorization** optimizes latency of the existing function 'DIEM_Stat' by around **46.50%** </br>
+![plot](https://drive.google.com/uc?id=1KsxawZw4swPKCPPhUq5yHEQKXzL99tRC)
 **Compact Optimized getDIEM** optimizes latency of the existing function 'getDIEM' by **34.27%**
+![plot](https://drive.google.com/uc?id=1lTNe5HZDDpjeyKslT-TqDhtW6KdUqVpy)
 
 ### Getting Started
 Install the package via pip:
