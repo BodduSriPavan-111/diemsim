@@ -7,7 +7,7 @@
 </div>
 
 # diemsim
-<b>diemsim</b> is an optimized Python library to compute "Dimension Insensitive Euclidean Metric (DIEM)" which surpasses Cosine similarity for multidimensional comparisons.
+<b>diemsim</b> is an optimized Python library to compute "Dimension Insensitive Euclidean Metric (DIEM)", surpassing Cosine similarity for multidimensional comparisons.
 <span style="color: blue;"><b>Benchmarking</b></span>
 
 ### Latency Benchmarking
