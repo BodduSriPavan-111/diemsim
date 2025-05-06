@@ -13,14 +13,14 @@
 <b>diemsim</b> is an optimized Python library to compute "Dimension Insensitive Euclidean Metric (DIEM)", surpassing Cosine similarity for multidimensional comparisons.
 <span style="color: blue;"><b>Benchmarking</b></span>
 
-### Latency Benchmarking
+## Latency Benchmarking
 Our proposed approaches, </br>
 **Compact Vectorization** optimizes latency of the existing function 'DIEM_Stat' by around **46.50%** </br>
 ![plot](https://drive.google.com/uc?id=1KsxawZw4swPKCPPhUq5yHEQKXzL99tRC)
 **Compact Optimized getDIEM** optimizes latency of the existing function 'getDIEM' by **34.27%**
 ![plot](https://drive.google.com/uc?id=1lTNe5HZDDpjeyKslT-TqDhtW6KdUqVpy)
 
-### Getting Started
+## Getting Started
 Install the package via pip:
 ```
 pip install diemsim
@@ -47,13 +47,28 @@ print( "Output Value: ", value )
 ```
 Find <b>Quick Start</b> notebook [here](https://github.com/BodduSriPavan-111/diemsim/blob/dev/examples/Quickstart_Usage_Guide.ipynb)
 
-### Key Contributors
+## Key Contributors
 <a href="https://www.linkedin.com/in/boddusripavan/"> Boddu Sri Pavan </a>, 
 <a href="https://www.linkedin.com/in/chandrasheker-t-44807015/"> Chandrasheker Thummanagoti </a>  </br>
 
 Please refer <a href="https://github.com/BodduSriPavan-111/diemsim/blob/dev/CONTRIBUTING.md">CONTRIBUTING.md</a> for <b>contributions</b> to <i>diemsim</i>
 
-## Acknowledgement
+## To cite our Python library
+BibTeX
+> @software{diemsim,  </br>
+>  title        = {diemsim: A Python Library Implementing Dimension Insensitive Euclidean Metric (DIEM)},  </br>
+>  author       = {Boddu Sri Pavan, Chandrasheker Thummanagoti},  </br>
+>  year         = {2025},  </br>
+>  publisher    = {Zenodo},  </br>
+>  version      = {v1.0.0},  </br>
+>  doi          = {10.5281/zenodo.15351274},  </br>
+>  url          = {https://doi.org/10.5281/zenodo.15351274}  </br>
+> }
+
+APA
+> BodduSriPavan111. (2025). BodduSriPavan-111/diemsim: Initial Release (v0.0.1). Zenodo. https://doi.org/10.5281/zenodo.15351275
+
+## Acknowledgements
 BibTeX
 > @misc{tessari2025surpassingcosinesimilaritymultidimensional,  </br>
 >      title={Surpassing Cosine Similarity for Multidimensional Comparisons: Dimension Insensitive Euclidean Metric},   </br>
@@ -64,9 +79,5 @@ BibTeX
 >      primaryClass={cs.LG},  </br>
 >      url={https://arxiv.org/abs/2407.08623},   </br>
 >}
-
-## To cite our Python library
-
-> Our citation
 
 ## Thank You !
