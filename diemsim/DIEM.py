@@ -152,7 +152,7 @@ class DIEM:
         
         return (self.maxV - self.minV) *(np.sqrt(np.dot(x, x))- self.exp_center)/ self.vard
 
-    def norm_sim(self, a: np.ndarray, b: np.ndarray) -> float:
+    def norm_sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray]) -> float:
         """
         Computes normalized DIEM value in the range [0,1].
 
