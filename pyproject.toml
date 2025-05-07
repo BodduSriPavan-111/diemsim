@@ -10,7 +10,7 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "numpy (>=2.2.5,<3.0.0)",
+    "numpy >=1.23.5, <2.0.0"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
