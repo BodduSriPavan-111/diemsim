@@ -3,10 +3,11 @@ File Name: DIEM.py
 Description: This file implements DIEM (Dimension Insensitive Euclidean Metric).
 Author: Boddu Sri Pavan
 Date Created: 04-05-2025
-Last Modified: 04-05-2025
+Last Modified: 07-05-2025
 """
 
 # Import necessary library/ libraries
+from typing import Union
 import numpy as np
 
 class DIEM:
@@ -122,7 +123,7 @@ class DIEM:
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
     
-    def sim(self, a: np.ndarray, b: np.ndarray) -> float:
+    def sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray]) -> float:
         """
         Computes DIEM value.
 
@@ -139,12 +140,18 @@ class DIEM:
         -------
         DIEM Value : float
         """
+        # Handle list datatype
+        if isinstance(a, list):
+            a= np.asarray(a)
 
+        if isinstance(b, list):
+            b= np.asarray(b)
+        
         # Calculate difference between two input vector embeddings 'a' and 'b'
-        x= a[:, 0]- b[:, 0]
+        x= a - b
         
         return (self.maxV - self.minV) *(np.sqrt(np.dot(x, x))- self.exp_center)/ self.vard
-    
+
     def norm_sim(self, a: np.ndarray, b: np.ndarray) -> float:
         """
         Computes normalized DIEM value in the range [0,1].
