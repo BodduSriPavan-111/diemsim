@@ -33,8 +33,8 @@ maxV= 1
 minV= 0
 n_iter= int(1e5)
 
-S1= np.random.rand(N, 1) * (maxV - minV) + minV
-S2= np.random.rand(N, 1) * (maxV - minV) + minV
+S1= np.random.rand(N) * (maxV - minV) + minV
+S2= np.random.rand(N) * (maxV - minV) + minV
 
 # Initialize DIEM
 diem= DIEM( N= N, maxV= maxV, minV= minV, n_iter= n_iter ) 
