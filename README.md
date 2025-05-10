@@ -3,6 +3,7 @@
 <div align="center">
 
 ![PyPI](https://img.shields.io/pypi/v/diemsim?color=blueviolet)
+[![PyPI Downloads](https://static.pepy.tech/badge/diemsim)](https://pepy.tech/projects/diemsim)
 ![Built with NumPy](https://img.shields.io/badge/Built%20with-NumPy-gold?logo=numpy&logoColor=gold)
 [![DOI](https://zenodo.org/badge/973683630.svg)](https://doi.org/10.5281/zenodo.15351274)
 ![License](https://img.shields.io/github/license/BodduSriPavan-111/kitikiplot?color=success)
