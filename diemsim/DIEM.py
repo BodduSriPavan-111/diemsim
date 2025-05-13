@@ -123,6 +123,17 @@ class DIEM:
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
     
+    def check_input(self, x: Union[list, np.ndarray]) -> float:
+
+        if isinstance(x, list):
+            x= np.asarray(x)
+        
+        if x.ndim == 1:
+            return x
+        
+        raise ValueError( f"Dimension of input array is {x.ndim}. Input array should be 1 Dimensional.")
+
+        
     def sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray]) -> float:
         """
         Computes DIEM value.
@@ -140,12 +151,9 @@ class DIEM:
         -------
         DIEM Value : float
         """
-        # Handle list datatype
-        if isinstance(a, list):
-            a= np.asarray(a)
-
-        if isinstance(b, list):
-            b= np.asarray(b)
+        # Verify inputs
+        a= self.check_input( a )
+        b= self.check_input( b )
         
         # Calculate difference between two input vector embeddings 'a' and 'b'
         x= a - b
