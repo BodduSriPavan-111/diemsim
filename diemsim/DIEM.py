@@ -135,23 +135,16 @@ class DIEM:
         if isinstance(y, list):
             y= np.asarray(y)
         
+        x_dim, y_dim= x.ndim, y.ndim
         # Check shapes
-        if x.ndim == 1:
-            
-            if y.ndim == 1:
-
-                if x.shape == y.shape:
-
-                    return x, y
+        if x_dim == y_dim and x_dim in [1, 2]:
+                    
+            return x, y
                 
-                raise ValueError( f"Input arrays must have same length.")
-
-            raise ValueError( f"Dimension of input array 'b': {y.ndim}. Input array should be 1 Dimensional.")
+        raise ValueError( f"Dimension of input arrays: {x_dim}, {y_dim}. Dimension of input arrays should be 1-D or 2-D.")
+    
         
-        raise ValueError( f"Dimension of input array 'a': {x.ndim}. Input array should be 1 Dimensional.")
-
-        
-    def sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray]) -> float:
+    def sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray], how= None) -> float:
         """
         Computes DIEM value.
         
@@ -161,6 +154,8 @@ class DIEM:
             - Input vector embedding-1.
         b : np.ndarray
             - Input vector embedding-2.
+        how : str
+            - 'all_pair': similarity of a[i], b[j]
 
         Returns
         -------
@@ -173,10 +168,19 @@ class DIEM:
         # Verify inputs
         a, b= self.check_inputs( a, b )
         
-        # Calculate difference between two input vector embeddings 'a' and 'b'
         x= a - b
+
+        if x.ndim == 2:
+
+            if how == "all_pair":
+                pass
+            
+            # Indexwise DIEM calculation for two arrays
+            return [ (self.maxV - self.minV) *(np.sqrt(np.dot(each_x, each_x))- self.exp_center)/ self.vard for each_x in x ]
         
+        # DIEM for two vector embeddings
         return (self.maxV - self.minV) *(np.sqrt(np.dot(x, x))- self.exp_center)/ self.vard
+
 
     def norm_sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray]) -> float:
         """
