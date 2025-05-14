@@ -123,22 +123,37 @@ class DIEM:
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
     
-    def check_input(self, x: Union[list, np.ndarray]) -> float:
-
+    def check_inputs(self, x: Union[list, np.ndarray], y: Union[list, np.ndarray]) -> float:
+        """
+            Function to convert inputs into 'np.array' and check shapes before computation of DIEM value.
+        """
+        
+        # Convert inputs into 'np.ndarray'
         if isinstance(x, list):
             x= np.asarray(x)
+
+        if isinstance(y, list):
+            y= np.asarray(y)
         
+        # Check shapes
         if x.ndim == 1:
-            return x
+            
+            if y.ndim == 1:
+
+                if x.shape == y.shape:
+
+                    return x, y
+                
+                raise ValueError( f"Input arrays must have same length.")
+
+            raise ValueError( f"Dimension of input array 'b': {y.ndim}. Input array should be 1 Dimensional.")
         
-        raise ValueError( f"Dimension of input array is {x.ndim}. Input array should be 1 Dimensional.")
+        raise ValueError( f"Dimension of input array 'a': {x.ndim}. Input array should be 1 Dimensional.")
 
         
     def sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray]) -> float:
         """
         Computes DIEM value.
-
-        Note: This function is the 'compact_optimized_getDIEM' mentioned in 'notebooks/getDIEM_Optimization.ipynb'.
         
         Parameters
         ----------
@@ -150,10 +165,13 @@ class DIEM:
         Returns
         -------
         DIEM Value : float
+
+        Note
+        ----
+        This function is the 'compact_optimized_getDIEM' mentioned in 'notebooks/getDIEM_Optimization.ipynb'.
         """
         # Verify inputs
-        a= self.check_input( a )
-        b= self.check_input( b )
+        a, b= self.check_inputs( a, b )
         
         # Calculate difference between two input vector embeddings 'a' and 'b'
         x= a - b
