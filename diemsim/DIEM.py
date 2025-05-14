@@ -167,14 +167,16 @@ class DIEM:
         """
         # Verify inputs
         a, b= self.check_inputs( a, b )
-        
+
+        if a.ndim == 2 and how == "all_pair":
+
+            x= [ [ i-j for j in b] for i in a ]
+            return [ [(self.maxV - self.minV) *(np.sqrt(np.dot( j, j))- self.exp_center)/ self.vard for j in i] for i in x ]
+
         x= a - b
 
-        if x.ndim == 2:
+        if x.ndim == 2 and how == None:
 
-            if how == "all_pair":
-                pass
-            
             # Indexwise DIEM calculation for two arrays
             return [ (self.maxV - self.minV) *(np.sqrt(np.dot(each_x, each_x))- self.exp_center)/ self.vard for each_x in x ]
         
