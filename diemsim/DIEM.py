@@ -123,16 +123,16 @@ class DIEM:
                 "max_DIEM": rv_factor * (np.sqrt(N) * range_factor - exp_center)
                 }
     
-    def check_inputs(self, x: Union[list, np.ndarray], y: Union[list, np.ndarray]) -> float:
+    def check_inputs(self, x: Union[tuple, list, np.ndarray], y: Union[tuple, list, np.ndarray]) -> float:
         """
             Function to convert inputs into 'np.array' and check shapes before computation of DIEM value.
         """
         
         # Convert inputs into 'np.ndarray'
-        if isinstance(x, list):
+        if isinstance(x, list) or isinstance(x, tuple):
             x= np.asarray(x)
 
-        if isinstance(y, list):
+        if isinstance(y, list) or isinstance(y, tuple):
             y= np.asarray(y)
         
         x_dim, y_dim= x.ndim, y.ndim
@@ -144,7 +144,7 @@ class DIEM:
         raise ValueError( f"Dimension of input arrays: {x_dim}, {y_dim}. Dimension of input arrays should be 1-D or 2-D.")
     
         
-    def sim(self, a: Union[list, np.ndarray], b: Union[list, np.ndarray], how= None) -> float:
+    def sim(self, a: Union[tuple, list, np.ndarray], b: Union[tuple, list, np.ndarray], how= None) -> float:
         """
         Computes DIEM value.
         

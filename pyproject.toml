@@ -24,3 +24,7 @@ classifiers = [
 Homepage = "https://github.com/BodduSriPavan-111/diemsim"
 Repository = "https://github.com/BodduSriPavan-111/diemsim"
 Issues = "https://github.com/BodduSriPavan-111/diemsim/issues"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.30.1"
+
